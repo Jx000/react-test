@@ -21,16 +21,34 @@ class app extends Component {
         ]
     }
 
+    addItem = (item) => {
+        const {comments} = this.state
+        comments.unshift(item)
+        this.setState({
+            comments
+        })
+    }
+
+    delItems = (index) => {
+        const {comments} = this.state
+        comments.splice(index, 1)
+        this.setState({
+            comments
+        })
+    }
+
     render() {
         const { comments } = this.state
+        const addItem = this.addItem
+        const delItems = this.delItems
         return (
             <div>
-                <h3>
+                <h3> 
                     学习React
                 </h3>
                 <div className="content">
-                    <CommentAdd />
-                    <CommentList comments={comments}/>
+                    <CommentAdd addItem={addItem} />
+                    <CommentList comments={comments} delItems={delItems}/>
                 </div>
             </div>
         );
