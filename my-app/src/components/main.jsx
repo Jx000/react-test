@@ -47,7 +47,7 @@ export default class Main extends Component {
             <div>
                 {/* <p>{users}</p> */}
                 {/* {users.map((user, index) => 
-                    <div>
+                    <div key={index}>
                         <p>{user.login}</p>
                         <img src={user.avatar_url} alt=""/>
                     </div> )} */}
