@@ -8,17 +8,17 @@ export default class App extends Component {
         searchName: ''
     }
 
-    getSearchName = (searchName) => {
-        this.setState({searchName})
-    }
+    // getSearchName = (searchName) => {
+    //     this.setState({searchName})
+    // }
 
     render() {
-        const {searchName} = this.state
+        // const {searchName} = this.state
         return (
             <div>
                 <h2>Search Github Users</h2>
-                <Search getSearchName={this.getSearchName} />
-                <Main searchName={searchName} />
+                <Search/>
+                <Main/>
             </div>
         )
     }

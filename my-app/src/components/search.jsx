@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import PropsTypes from 'prop-types'
+// import PropsTypes from 'prop-types'
+import PubSub from 'pubsub-js'
+
 
 export default class Search extends Component {
 
@@ -7,14 +9,15 @@ export default class Search extends Component {
         searchValue: ''
     }
 
-    static propTypes = {
-        getSearchName: PropsTypes.func.isRequired
-    }
+    // static propTypes = {
+    //     getSearchName: PropsTypes.func.isRequired
+    // }
 
     handleClick = () => {
         const {searchValue} = this.state
-        const {getSearchName} = this.props
-        getSearchName(searchValue)
+        // const {getSearchName} = this.props
+        // getSearchName(searchValue)
+        PubSub.publish('search', searchValue)
     }
 
     handleChange = (e) => {
