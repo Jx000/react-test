@@ -33,7 +33,6 @@ export default class Main extends Component {
 
     render() {
         const {users} = this.state
-        
         return (
             <div>
                 {users.map((user, index) => 
