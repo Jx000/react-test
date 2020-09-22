@@ -1,31 +1,17 @@
 import React, { Component } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
 
-import About from '../pages/about'
-import Home from '../pages/home'
-import MyNavLink from './myNavLink'
+import { Button, Toast } from 'antd-mobile'
 
 export default class App extends Component {
+
+    handleClick = () => {
+        Toast.info('提交成功', 1, () => {})
+    }
 
     render() {
         return (
             <div>
-                <div>React-router</div>
-                <div>
-                    <div>
-                        <MyNavLink to='/about'>About</MyNavLink>
-                    </div>
-                    <div>
-                        <MyNavLink to='/home' >Home</MyNavLink>
-                    </div>
-                </div>
-                <div>
-                    <Switch>
-                        <Route path='/about' component={About}/>
-                        <Route path='/home' component={Home}/>
-                        <Redirect to='/about'/>
-                    </Switch>
-                </div>
+                <Button type="primary" onClick={this.handleClick}>Start</Button>
             </div>
         )
     }
