@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 
-import {Add} from '../redux/actions'
-
 export default class App extends Component {
 
     state = {
+        count: 0,
         selectValue: 1
     }
 
     handleAdd = () => {
-        const {selectValue} = this.state
+        const {count, selectValue} = this.state
         // console.log(count)
-        // this.setState({count: count * 1 + selectValue * 1})
-        this.props.store.dispatch((Add(selectValue*1)))
+        this.setState({count: count * 1 + selectValue * 1})
     }
 
     handleChange = (e) => {
@@ -21,8 +19,7 @@ export default class App extends Component {
     }
 
     render() {
-        const {selectValue} = this.state
-        const count = this.props.store.getState()
+        const {count, selectValue} = this.state
         return (
             <div>
                 <p>click {count} timers</p>
